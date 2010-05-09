@@ -1,0 +1,106 @@
+{#template /layout.html}
+
+{#def breadcrumbs}
+<a href="/">Blog</a> / 
+<b>{=article/title}</b>
+{/#def}
+
+{#def content}
+{:s article}
+{#include /articles/article.inc.html}
+{/:s}
+
+<section id="comments">
+<h2>{=/article/commentCount} Comments</h2>
+{:r comments}
+{#include /comments/comment.inc.html}
+{/:r}
+</section>
+<form id="commentform" method="POST">
+    <input type="hidden" name="article" value="{=/article/key}" />
+    <fieldset>
+        <ol>
+            <li>
+                <label for="author">Author</label>
+                <input type="text" name="author" value="{=author}" required="true" placeholder="your name" />
+            </li>
+            <li>
+                <label for="email">Email</label>
+                <input type="geemail" name="email" value="{=email}" required="true" placeholder="your email, not displayed" />
+            </li>
+            <li>
+                <label for="uri">Website</label>
+                <input type="url" name="uri" value="{=uri}" required="true" placeholder="http://.." />
+            </li>
+            <li>
+                <textarea name="content" id="content" style="height: 8em" placeholder="your comment">{=content}</textarea>
+            </li>
+        </ol>
+    </fieldset>
+    <fieldset class="submit">
+        <button type="submit">Post</button>
+    </fieldset>
+</form>
+{/#def}
+
+{#def script}
+$(".article .DELETE").live("click", function (e) {
+    e.preventDefault();
+    if (confirm("Are you sure?")) {
+        $.post(e.target.href, { _method: "DELETE" }, function () {
+            window.location.href = "/";
+        });
+        $("body").fadeOut();
+    }
+});
+
+$(".comment .DELETE").live("click", function (e) {
+    e.preventDefault();
+    if (confirm("Are you sure?")) {
+        $("#comments>h2").html((parseInt($("#comments>h2").html().split(" "), 10) - 1) + " Comments");
+        $(e.target).parent().parent().fadeOut();
+        $.post(e.target.href, { _method: "DELETE" });
+    }
+});
+
+var form = $("#commentform");
+
+form.bind("submit", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    var f = e.target,
+        errors = {},
+        params = {
+            article: f.article.value,
+            author: f.author.value,
+            email: f.email.value,
+            uri: f.uri.value,
+            content: f.content.value
+        };
+
+    if (!params.author) errors.author = "Please provide an author name";
+    if (!params.email) errors.email = "Please provide an email";
+    if (!params.content) errors.content = "Please provide the content";
+    
+    for (var i in errors) {
+        showErrors(form, errors);
+        return false;
+    }
+
+    $.post("/comments", params, function (res) {
+        if (res.errors) {
+            $("#waiting").remove();
+            showErrors(form, res.errors);
+            return false;
+        } else {
+            $("#waiting").remove();
+            $("#comments").append(res.html);
+            f.content.value = "";
+            $("#comments>h2").html((parseInt($("#comments>h2").html().split(" "), 10) + 1) + " Comments");
+        }
+    });    
+    
+    form.find("fieldset.submit").append('<img id="waiting" src="/ajax.gif" />');    
+});
+{/#def}

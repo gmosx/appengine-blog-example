@@ -1,0 +1,17 @@
+{#template /layout.html}
+
+{#def breadcrumbs}
+<b>Blog</b>
+{/#def}
+
+{#def content}
+{:r articles}
+    {#include /articles/summary.inc.html}
+{:e}
+    no articles
+{/:r}
+{/#def}
+
+{#def aside}
+{#include /aside.inc.html}
+{/#def}

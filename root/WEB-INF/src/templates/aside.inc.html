@@ -1,0 +1,10 @@
+<aside>
+    <p>
+        <img src="/plus.png" style="position: relative; top: 3px" /> <a href="/articles/edit">Add article</a>
+    </p>
+    <p>
+        {:r asideTags}
+        <a href="/tags/tag?label={=label}">{=label}</a> ({=count})<br />
+        {/:r}
+    </p>
+</aside>

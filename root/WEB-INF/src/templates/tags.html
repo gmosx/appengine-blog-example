@@ -1,0 +1,12 @@
+{#template /layout.html}
+
+{#def breadcrumbs}
+<a href="/">Blog</a> / 
+<b>Tags</b>
+{/#def}
+
+{#def content}
+<div class="tagcloud tags" style="line-height: {=maxSize}em">
+    {=str tags}
+</div>
+{/#def}

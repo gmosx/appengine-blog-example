@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+    <cron>
+        <url>/etc/cron/ping</url>
+        <description>Ping the app to keep an instance loaded</description>
+        <schedule>every 1 minutes</schedule>
+    </cron>
+</cronentries>

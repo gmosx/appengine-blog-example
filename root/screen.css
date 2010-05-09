@@ -1,0 +1,138 @@
+* { margin: 0; padding: 0; }
+html { font-size: 62.5%; } /* 1em == 10px http://clagnut.com/blog/348 */
+
+ul { margin-left: 1.5em; }
+ul li { margin-left: .85em; }
+ol { margin-left: 2.35em; }
+ol ol, ul ol { margin-left: 2.5em; }
+dd { margin-left: 2em; }
+
+body, th, td {
+	font-family: Arial, sans-serif;
+	font-size: 1.3em; /* 13px */
+	line-height: 1.38em; /* 18px */
+}
+p, hr {
+	margin-bottom: 1.6em;
+}
+p+p { margin-top: -.8em; }
+
+h1 { font-size: 1.6em; margin: 1em 0 .5em; }
+h2 { font-size: 1.5em; margin: 1.07em 0 .535em; }
+h3 { font-size: 1.4em; margin: 1.14em 0 .57em; }
+h4 { font-size: 1.3em; margin: 1.23em 0 .615em; }
+h5 { font-size: 1.2em; margin: 1.33em 0 .67em; }
+h6 { font-size: 1em; margin: 1.6em 0 .8em; }
+
+a img, :link img, :visited img { border: none; }
+
+.clear { clear: both; }
+
+section, article, nav, header, footer, aside {
+    display: block;
+}
+
+form {
+}
+	
+fieldset {  
+    border: none;
+    margin: 0;  
+    padding: 0;
+}
+
+legend {  
+	display: none;
+    color: #000;  
+    font-weight: bold;
+    margin-left: 1em;  
+}
+
+fieldset ol {  
+	margin: 0;
+    padding: 0;  
+    list-style: none;
+}
+
+fieldset li {
+    margin-bottom: 0.78em;
+}
+
+fieldset.actions {  
+    border-style: none;
+    margin-top: 1em;
+}
+
+label {
+    display: block;
+}
+
+label img {
+    position: relative;
+    top: 0.15em;
+}
+
+textarea {
+    width: 90%;
+    height: 5em;
+}
+
+form fieldset li.error {
+    background: #fee;
+    color: #f00;
+}
+
+form fieldset li.error label {
+    color: #f00;
+}
+
+input[type=text] {
+    width: 32em;
+}
+
+input[type=email] {
+    width: 24em;
+}
+
+body { 
+    margin: 20px;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+footer {
+    clear: both;
+    margin-top: 40px;
+}
+
+input, textarea {
+    border: 1px solid #999;
+}
+
+.error {
+    color: #f00;
+}
+
+input.error, textarea.error {
+    color: #000;
+    border: 1px solid #f00 !important;
+}
+
+aside {
+    float: right;
+    border-left: 1px solid #ccc;
+    margin-left: 20px;
+    padding-left: 20px;
+    width: 300px;
+}
+
+article.comment {
+    overflow: auto;
+    margin-bottom: 1em;
+}
+
+img.avatar {
+    float: right;
+}

@@ -1,0 +1,15 @@
+{#template /layout.html}
+
+{#def breadcrumbs}
+<a href="/">Blog</a> / 
+<a href="/tags">Tags</a> / 
+<b>{=tag/label}</b>
+{/#def}
+
+{#def content}
+{:r articles}
+    {#include /articles/summary.inc.html}
+{:e}
+    no articles
+{/:r}
+{/#def}

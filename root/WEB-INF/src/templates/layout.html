@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>{=bctitle breadcrumbs}</title>
+        <link rel="stylesheet" media="screen" href="/screen.css" type="text/css" />
+        <link rel="alternate" title="Blog Atom feed" href="/articles.atom" type="application/atom+xml" />
+        <meta name="description" content="A simple blog, powered by AppengineJS" />
+        <meta name="keywords" content="{:lb}:if keywords{:rb}{:lb}=keywords{:rb}{:lb}:e{:rb}blog,appenginejs,nitro,commonjs{:lb}/:if{:rb}" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        {=head}
+    </head>
+    <body>
+        <header>
+            <h2>{=breadcrumbs}</h2>
+        </header> 
+        {=aside}
+        <div>
+        {=content}
+        </div>
+        <footer>
+            <p>&copy; 2010 George Moschovitis. Uses <a href="http://www.nitrojs.org">Nitro</a> middleware.</p>
+        </footer>
+        <script src="/jquery.js"></script>
+        <script src="/utils.js"></script>
+        {:if script}
+        <script>
+            {=script}
+        </script>
+        {/:if}
+        {=end}
+    </body>
+</html>
