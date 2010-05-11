@@ -4,7 +4,7 @@ var Request = require("nitro/request").Request,
 var Comment = require("content/comment").Comment;
     
 exports.DELETE = function(env) {
-    var params = new Request(env).params(),
+    var params = new Request(env).params,
         c = Comment.get(params.key);
         
     if (c) { 

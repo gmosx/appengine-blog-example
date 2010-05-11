@@ -19,7 +19,7 @@ exports.GET = function(env) {
             title: a.title,
             content: a.content,
             created: a.created,
-            tagsLinks: a.tagsLinks("/blog/tags/", " "),
+            tagsLinks: a.tagsLinks("/tags/tag?label="),
             commentCount: a.commentCount
         },
         comments: comments.map(function (c) {
@@ -38,7 +38,7 @@ exports.GET = function(env) {
 }
     
 exports.DELETE = function(env) {
-    var params = new Request(env).params(),
+    var params = new Request(env).params,
         a = Article.get(params.key);
         
     if (a) { 

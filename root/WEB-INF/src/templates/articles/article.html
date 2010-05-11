@@ -19,23 +19,21 @@
 <form id="commentform" method="POST">
     <input type="hidden" name="article" value="{=/article/key}" />
     <fieldset>
-        <ol>
-            <li>
-                <label for="author">Author</label>
-                <input type="text" name="author" value="{=author}" required="true" placeholder="your name" />
-            </li>
-            <li>
-                <label for="email">Email</label>
-                <input type="geemail" name="email" value="{=email}" required="true" placeholder="your email, not displayed" />
-            </li>
-            <li>
-                <label for="uri">Website</label>
-                <input type="url" name="uri" value="{=uri}" required="true" placeholder="http://.." />
-            </li>
-            <li>
-                <textarea name="content" id="content" style="height: 8em" placeholder="your comment">{=content}</textarea>
-            </li>
-        </ol>
+        <p>
+            <label for="author">Author</label>
+            <input type="text" name="author" value="{=author}" required="true" placeholder="your name" />
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="geemail" name="email" value="{=email}" required="true" placeholder="your email, not displayed" />
+        </p>
+        <p>
+            <label for="uri">Website</label>
+            <input name="uri" value="{=uri}" required="true" placeholder="http://.." />
+        </p>
+        <p>            
+            <textarea name="content" id="content" style="height: 8em" placeholder="your comment">{=content}</textarea>
+        </p>
     </fieldset>
     <fieldset class="submit">
         <button type="submit">Post</button>
@@ -68,7 +66,7 @@ var form = $("#commentform");
 form.bind("submit", function (e) {
     e.preventDefault();
     e.stopPropagation();
-    
+
     var f = e.target,
         errors = {},
         params = {

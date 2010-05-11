@@ -1,4 +1,5 @@
-var md5 = require("narwhal/md5").hash;
+var md5 = require("narwhal/md5").hash,
+    base16 = require("narwhal/base16").encode;
 
 /**
  * A gravatar, or globally recognized avatar, is quite simply an avatar 
@@ -17,7 +18,7 @@ var md5 = require("narwhal/md5").hash;
  */
 var gravatarURI = exports.gravatarUTI = exports.uri = function(email, extra, prefix) {
     if (!email) return "";
-    return "http://gravatar.com/avatar/" + md5(email).decodeToString(16) + ".png" + (extra || "?d=identicon");
+    return "http://gravatar.com/avatar/" + base16(md5(email)) + ".png" + (extra || "?d=identicon");
 }
 
 exports.gravatarURI_small = function() {

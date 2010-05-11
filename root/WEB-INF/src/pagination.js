@@ -1,7 +1,7 @@
 var Request = require("jack/request").Request;
 
 exports.paginate = function (env, query, limit) {
-    var params = new Request(env).params(),
+    var params = new Request(env).params,
         items = query.withCursor(params._c).fetch(limit);
 
     if (params._c) {

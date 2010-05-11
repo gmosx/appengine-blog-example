@@ -9,7 +9,7 @@ var brify = require("content/utils").brify,
     gravatarURI = require("gravatar").uri;
 
 exports.POST = function(env) {
-	var params = new Request(env).POST(),
+	var params = new Request(env).params,
     	article = Article.get(params.article);
 
     if (!article) return Response.notFound("Article not found");
