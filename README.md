@@ -14,12 +14,13 @@ This application is intended as an example to help developers get started with A
 Setup
 -----
 
-This is a special prepackaged version of the application that includes all required packages in root/WEB-INF/packages:
+This is a special prepackaged version of the application that includes all required packages:
 
 * jack-lib
 * nitro-lib
 * appengine
 * normal-template
+* ringojs
 
 However, you have to download the [Google App Engine Java SDK](http://code.google.com/appengine/downloads.html). Make sure that the SDK bin directory is in path.
 
@@ -29,14 +30,8 @@ Running the example
 
 To start the application, just use:
 
+    $ cd appengine-example
     $ dev_appserver.sh root 
-
-The application runs in development (local) mode by default. To switch to the optimized (hosted) mode, uncomment the environment parameter setting in war/WEB-INF/web.xml:
-
-        <init-param>
-            <param-name>environment</param-name>
-            <param-value>hosted</param-value>
-        </init-param>
 
 
 Deploying to Google App Engine
@@ -44,6 +39,7 @@ Deploying to Google App Engine
 
 To deploy this application to Google App Engine (GAE) use the appcfg.sh utility that comes with the SDK:
 
+    $ cd appengine-example
     $ appcfg.sh --email=admin@email.com update root 
 
 where admin@email.com is the email used to create your GAE account.
