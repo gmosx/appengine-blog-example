@@ -3,7 +3,7 @@ var Request = require("nitro/request").Request,
     
 var Article = require("content/article").Article;
 
-exports.GET = function(env) {
+exports.GET = function (env) {
     var params = new Request(env).params,
         a = params.key ? Article.get(params.key) : new Article();
 

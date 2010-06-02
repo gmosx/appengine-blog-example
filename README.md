@@ -47,6 +47,17 @@ where admin@email.com is the email used to create your GAE account.
 The application runs automatically in optimized (hosted) mode on the GAE infrastructure.
 
 
+Directory structure
+-------------------
+
+* /root - the public root directory
+* /root/WEB-INF - non public files go here
+* /root/WEB-INF/src - the source code of the application
+* /root/WEB-INF/src/root - scripts
+* /root/WEB-INF/src/templates - template files
+* /root/WEB-INF/packages - CommonJS packages
+
+
 Help
 ----
 

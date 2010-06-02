@@ -4,8 +4,8 @@ var Request = require("nitro/request").Request,
 var Article = require("content/article").Article,
     ArticleForm = require("google/appengine/ext/db/forms").ModelForm(Article);
     
-exports.POST = function(env) {
-    var params = new Request(env).params,
+exports.POST = function (request) {
+    var params = request.params,
         a = params.key ? Article.get(params.key) : new Article();
 
     a.updateTags(params.tagsString);

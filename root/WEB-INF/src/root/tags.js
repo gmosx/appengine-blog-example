@@ -3,13 +3,13 @@ var Request = require("nitro/request").Request,
 
 var Tag = require("content/tag").Tag;
 
-exports.GET = function(env) {
-    var params = new Request(env).params;
+exports.GET = function (request) {
+    var params = new Request(request).params;
 
     if (params.args) {
-        env["PATH_INFO"] = "/tags/tag.html";
+        request["PATH_INFO"] = "/tags/tag.html";
         params.label = params.args[0]; 
-        return env.dispatch(env);
+        return request.dispatch(request);
     }
 
     var tags = Tag.all().order("-count").fetch(100);

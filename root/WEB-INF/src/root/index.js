@@ -3,8 +3,8 @@ var Article = require("content/article").Article;
 var paginate = require("pagination").paginate,
     Aside = require("../wrap").Aside;
 
-exports.GET = Aside(function (env) {
-    var articles = paginate(env, Article.all().order("-created"), 10);
+exports.GET = Aside(function (request) {
+    var articles = paginate(request, Article.all().order("-created"), 10);
     
     return {data: {
         articles: articles.map(function(a) {

@@ -1,0 +1,15 @@
+{
+    "name": "appengine-example",
+    "description": "A simple AppengineJS example",
+    "keywords": ["appengine", "blog", "example"],
+    "author": "George Moschovitis",
+    "email": "george.moschovitis@gmail.com",
+    "dependencies": [
+        "narwhal-lib",
+        "jack-lib",
+        "nitro",
+        "appengine",
+        "normal-template"
+    ],
+    "lib": "lib",
+}
